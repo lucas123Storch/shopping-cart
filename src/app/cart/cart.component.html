@@ -1,0 +1,33 @@
+<div class="container">
+  <h3 class="title">Meu carrinho</h3>
+  <hr />
+
+  <div class="row-item" *ngFor="let item of data.items">
+    <div class="photo">
+      <img
+        [src]="item.imageUrl"
+        class="photo-src"
+      />
+    </div>
+
+    <div class="text-prod">
+      <p class="product-name">{{ item.name }}</p>
+      <p class="product-price">{{ item.price | formatCurrency}}</p>
+      <p class="product-discount">{{ item.sellingPrice | formatCurrency}}</p>
+    </div>
+  </div>
+  <hr />
+
+  <div class="row-total">
+    <p class="total-text">Total</p>
+    <p class="total-text">{{ data.value | formatCurrency}}</p>
+  </div>
+  <div class="free-shipping" *ngIf="data.value > 10">
+      <p class="text-free-shipping">Parabéns, sua compra tem frete grátis !</p>
+  </div>
+  <hr />
+
+  <div class="container-btn">
+    <button class="btn-finish">Finalizar compra</button>
+  </div>
+</div>
